@@ -316,6 +316,9 @@
             }
         }
         @media (max-width:1074px) {
+            .block-2-ul{
+                height: 500px;
+            }
             .container{
                 max-width: 800px;
             }
@@ -389,14 +392,16 @@
     <div class="container">
         <div class="block-2">
             <ul class="block-2-ul">
-                <li id="slaider1" class="slaider active"><img src="./img/slider-1.jpg" alt=""></li>
-                <li id="slaider2" class="slaider"><img src="./img/slider-2.jpg" alt=""></li>
-                <li id="slaider3" class="slaider"><img src="./img/slider-3.jpg" alt=""></li>
+                <li id="slaider1" class="slaider active"><img src="./img/slider-1.png" alt=""></li>
+                <li id="slaider2" class="slaider"><img src="./img/slider-1.jpg" alt=""></li>
+                <li id="slaider3" class="slaider"><img src="./img/slider-2.jpg" alt=""></li>
+                <li id="slaider4" class="slaider"><img src="./img/slider-3.jpg" alt=""></li>
             </ul>
             <div class="click">
                 <span id="click1" onclick="fuck(id)" class="span active"></span>
                 <span id="click2" onclick="fuck(id)" class="span"></span>
                 <span id="click3" onclick="fuck(id)" class="span"></span>
+                <span id="click4" onclick="fuck(id)" class="span"></span>
             </div>
         </div>
         <div class="block-1">
@@ -452,33 +457,51 @@
         const btn1 = document.querySelector("#click1");
         const btn2 = document.querySelector("#click2");
         const btn3 = document.querySelector("#click3");
+        const btn4 = document.querySelector("#click4");
         const slaid1 = document.querySelector("#slaider1")
         const slaid2 = document.querySelector("#slaider2")
         const slaid3 = document.querySelector("#slaider3")
+        const slaid4 = document.querySelector("#slaider4")
         function fuck(e) {
             if (e == "click1") {
                 btn1.classList.add("active");
                 btn2.classList.remove("active");
                 btn3.classList.remove("active");
+                btn4.classList.remove("active");
                 slaid2.classList.remove("active");
                 slaid3.classList.remove("active");
+                slaid4.classList.remove("active");
                 slaid1.classList.add("active");
             }
             else if (e == "click2") {
                 btn2.classList.add("active");
                 btn1.classList.remove("active");
                 btn3.classList.remove("active");
+                btn4.classList.remove("active");
                 slaid1.classList.remove("active");
                 slaid3.classList.remove("active");
+                slaid4.classList.remove("active");
                 slaid2.classList.add("active");
             }
             else if (e == "click3") {
                 btn3.classList.add("active");
                 btn1.classList.remove("active");
                 btn2.classList.remove("active");
+                btn4.classList.remove("active");
                 slaid1.classList.remove("active");
                 slaid2.classList.remove("active");
+                slaid4.classList.remove("active");
                 slaid3.classList.add("active");
+            }
+            else if (e == "click4") {
+                btn4.classList.add("active");
+                btn1.classList.remove("active");
+                btn2.classList.remove("active");
+                btn3.classList.remove("active");
+                slaid1.classList.remove("active");
+                slaid2.classList.remove("active");
+                slaid3.classList.remove("active");
+                slaid4.classList.add("active");
             }
 
         }
@@ -486,17 +509,22 @@
             const sl1=window.getComputedStyle(slaid1,null);
             const sl2=window.getComputedStyle(slaid2,null);
             const sl3=window.getComputedStyle(slaid3,null);
+            const sl4=window.getComputedStyle(slaid4,null);
             let opacity1=sl1.getPropertyValue("opacity");
             let opacity2=sl2.getPropertyValue("opacity");
             let opacity3=sl3.getPropertyValue("opacity");
+            let opacity4=sl4.getPropertyValue("opacity");
 
-            if(opacity1==1 && opacity2==0 && opacity3==0){
+            if(opacity1==1 && opacity2==0 && opacity3==0 && opacity4==0){
                 fuck("click2");
             }
-            else if(opacity1==0 && opacity2==1 && opacity3==0){
+            else if(opacity1==0 && opacity2==1 && opacity3==0 && opacity4==0){
                 fuck("click3");
             }
-            else if(opacity1==0 && opacity2==0 && opacity3==1){
+            else if(opacity1==0 && opacity2==0 && opacity3==1 && opacity4==0){
+                fuck("click1"); 
+            }
+            else if(opacity1==0 && opacity2==0 && opacity3==0 && opacity4==1){
                 fuck("click1"); 
             }
         }, 5000);
